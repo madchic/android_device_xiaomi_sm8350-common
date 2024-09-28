@@ -6,8 +6,6 @@
 
 COMMON_PATH := device/xiaomi/sm8350-common
 
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
-
 # A/B
 AB_OTA_UPDATER := true
 
@@ -139,9 +137,7 @@ TARGET_BOARD_PLATFORM := lahaina
 TARGET_POWERHAL_MODE_EXT := $(COMMON_PATH)/power/power-mode.cpp
 
 # PowerShare
-SOONG_CONFIG_NAMESPACES += XIAOMI_POWERSHARE
-SOONG_CONFIG_XIAOMI_POWERSHARE := WIRELESS_TX_ENABLE_PATH
-SOONG_CONFIG_XIAOMI_POWERSHARE_WIRELESS_TX_ENABLE_PATH := /sys/class/qcom-battery/reverse_chg_mode
+TARGET_POWERSHARE_PATH := /sys/class/qcom-battery/reverse_chg_mode
 
 # Properties
 TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
@@ -164,7 +160,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2024-04-01
+VENDOR_SECURITY_PATCH := 2024-08-01
 
 # Sepolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
